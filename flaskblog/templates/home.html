@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="bg-dark text-light p-5 text-center text-sm-start  pt-lg-5">
+    <div class="container">
+        <div class="d-sm-flex align-center justify-content-between">
+            <div>
+                <h1>Welcome to <span class="text-warning">My Tech Blog</span></h1>
+                <p class="lead">It is a website where by a user can make a post in sharing his/her experience in tech journey or any tech related advice or subject to help a newbie to cope up with learning, you can share topics, opinions wish are very intense in the tech space...relentless to thy words</p>
+                <a class="nav-item nav-link" href="{{ url_for('new_post') }}">
+                  <button type="button" class="btn btn-primary btn-lg">Make Post</button>
+                </a>
+            </div><br>
+        </div>
+    </div>
+  </section><br>
+
+ </section>
+    {% for post in posts.items %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-dark mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-dark mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+{% endblock content %}
+<section class="p-5">
+  <div class="container">
+    <h3 class="text-center">CONTACT INFO</h3>
+      <ul class="list-group list-group-flush hmmm">
+        <li class="list-group-item">Email Address:<span class="fw-bold"> frankizuchukwu094@gmail.com</span></li>
+        <li class="list-group-item">Cellphone Number:<span class="fw-bold"> 09092039570</span></li>
+        <li class="list-group-item">Address:<span class="fw-bold"> Onitsha,Anambra</span></li>
+        <li class="list-group-item">Country:<span class="fw-bold"> Nigeria</span></li>
+        <li class="list-group-item">occupation:<span class="fw-bold"> Web Developer</span></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</section>
