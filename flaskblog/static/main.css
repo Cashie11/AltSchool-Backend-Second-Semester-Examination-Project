@@ -11,6 +11,19 @@ body::before {
   margin-right: 10px;
 }
 
+/* .fmm{
+  color: #fff;
+  background-color: #140f0f;
+} */
+
+.fmm h3, p {
+  color: #fff;
+} 
+
+.clearfix p{
+  color: #000;
+}
+
 body {
     background: #fff;
     color: #27272b;
@@ -38,7 +51,8 @@ body {
   }
   
   .content-section {
-    background: #fffefe;
+    background: #494848;
+    color: #fff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
@@ -46,7 +60,7 @@ body {
   }
   
   .article-title {
-    color: #131212;
+    color: #fdf5f5;
   }
   
   a.article-title:hover {

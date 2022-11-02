@@ -22,6 +22,9 @@ def home():
 def about():
     return render_template('about.html', title='About')
 
+@app.route("/contact")
+def contact():
+    return render_template('contact.html', title='Contact')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -83,6 +86,8 @@ def account():
             picture_file = save_picture(form.picture.data)
             current_user.image_file = picture_file
         current_user.username = form.username.data
+        current_user.firstname = form.firstname.data
+        current_user.lastname = form.lastname.data
         current_user.email = form.email.data
         db.session.commit()
         flash('Your account has been updated!', 'success')
