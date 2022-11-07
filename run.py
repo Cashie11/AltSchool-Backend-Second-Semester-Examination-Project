@@ -1,14 +1,6 @@
-from flaskblog import app
-from flaskblog import db
-from flask import os
+from flaskblog import create_app
 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
+app = create_app()
 
 if __name__ == '__main__':
-    if not os.path.exists('site.db'):
-        db.create_all()
     app.run(debug=True)
