@@ -5,6 +5,26 @@ The libraries i use for my project are...
 *Bootstrap
 *Python
 *Flask Framework
+bcrypt==3.1.4
+blinker==1.4
+certifi==2016.2.28
+cffi==1.11.5
+click==6.7
+Flask==1.0
+Flask-Bcrypt==0.7.1
+Flask-Login==0.4.1
+Flask-Mail==0.9.1
+Flask-SQLAlchemy==2.3.2
+Flask-WTF==0.14.2
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+Pillow==5.3.0
+pycparser==2.18
+six==1.11.0
+SQLAlchemy==1.2.7
+Werkzeug==0.14.1
+WTForms==2.1
 
 about the project, it's a Tech Blog website which a User can create account,login,logout,update his / her details or info,change profile picture and finally the user can make a post too.
 And it's a website by which knowledge are being share, both topics,subjects and information are being share and to help new tech aspirant to acquire more knowledge 
