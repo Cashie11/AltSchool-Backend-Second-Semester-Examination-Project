@@ -104,9 +104,14 @@ body {
   
 
 
+.date{
+  color: #000;
 
+}
 
-
+.comment{
+  color: #000;
+}
 
   @media(min-width:768px) {
     /* .news{
@@ -126,3 +131,5 @@ body {
     }
 
 }
+
+

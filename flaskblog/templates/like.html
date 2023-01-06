@@ -1,0 +1,39 @@
+<form id="like-form">
+    <input type="hidden" name="item_id" value="{{ item.id }}">
+    <button type="submit">Like</button>
+  </form>
+  
+  <script>
+    const form = document.getElementById('like-form');
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      fetch('/like', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        // update the like count in the DOM
+        const likeCount = document.getElementById('like-count');
+        likeCount.innerHTML = data.like_count;
+      });
+    });
+  </script>
+  
+
+
+  <div id="like-count">{{ item.like_count }}</div>
+
+  <script>
+    function updateLikeCount() {
+      fetch('/like_count/' + {{ item.id }})
+      .then(response => response.json())
+      .then(data => {
+        const likeCount = document.getElementById('like-count');
+        likeCount.innerHTML = data.like_count;
+      });
+    }
+    setInterval(updateLikeCount, 1000);
+  </script>
+  
